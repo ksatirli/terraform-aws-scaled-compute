@@ -4,9 +4,8 @@ variable "ami_id" {
 }
 
 variable "autoscaling_group_desired_capacity" {
-  type         = number
-  description  = "Desired Number of Instances in the Auto Scaling Group."
-  default /**/ = 1
+  type        = number
+  description = "Desired Number of Instances in the Auto Scaling Group."
 }
 
 variable "autoscaling_group_force_delete" {
@@ -38,13 +37,11 @@ variable "autoscaling_group_launch_template_version" {
 variable "autoscaling_group_max_size" {
   type        = number
   description = "Maximum Number of Instances in the Auto Scaling Group."
-  default     = 1 # 3
 }
 
 variable "autoscaling_group_min_size" {
   type        = number
   description = "Minimum Number of Instances in the Auto Scaling Group."
-  default     = 0 # 1
 }
 
 variable "autoscaling_group_termination_policies" {

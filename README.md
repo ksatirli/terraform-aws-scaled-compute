@@ -28,6 +28,9 @@
 | Name | Description | Type | Required |
 |------|-------------|------|:--------:|
 | ami_id | AMI ID to use for Instances in the Auto Scaling Group. | `string` | yes |
+| autoscaling_group_desired_capacity | Desired Number of Instances in the Auto Scaling Group. | `number` | yes |
+| autoscaling_group_max_size | Maximum Number of Instances in the Auto Scaling Group. | `number` | yes |
+| autoscaling_group_min_size | Minimum Number of Instances in the Auto Scaling Group. | `number` | yes |
 | availability_zones | List of Availability Zones for the Auto Scaling Group. | `list(string)` | yes |
 | aws_region | AWS Region. | `string` | yes |
 | custom_prefix | String to prepend on Resource Names. | `string` | yes |
@@ -39,13 +42,10 @@
 | launch_template_user_data | User Data for Instances in Launch Template. | `string` | yes |
 | launch_template_vpc_security_group_ids | List of Security Group IDs for Instances in Launch Template. | `list(string)` | yes |
 | security_group_vpc_id | VPC ID of Security Group. | `string` | yes |
-| autoscaling_group_desired_capacity | Desired Number of Instances in the Auto Scaling Group. | `number` | no |
 | autoscaling_group_force_delete | Toggle to enable Force Deletion of Instances in the Auto Scaling Group. | `bool` | no |
 | autoscaling_group_health_check_grace_period | Grace Period for Health Check of the Auto Scaling Group. | `number` | no |
 | autoscaling_group_health_check_type | Type of Health Check of the Auto Scaling Group. | `string` | no |
 | autoscaling_group_launch_template_version | Version of Launch Template to use for Autoscaling Group. | `string` | no |
-| autoscaling_group_max_size | Maximum Number of Instances in the Auto Scaling Group. | `number` | no |
-| autoscaling_group_min_size | Minimum Number of Instances in the Auto Scaling Group. | `number` | no |
 | autoscaling_group_termination_policies | Termination Policies of the Auto Scaling Group. | `list(string)` | no |
 | launch_template_disable_api_stop | Toggle to enable EC2 Instance Stop Protection. | `bool` | no |
 | launch_template_disable_api_termination | Toggle to enable EC2 Instance Termination Protection. | `bool` | no |
