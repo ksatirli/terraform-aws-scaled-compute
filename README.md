@@ -39,7 +39,7 @@
 | launch_template_block_device_mappings | Block Device Configuration for Instances in Launch Template. | <pre>object({<br>    device_name     = string<br>    ebs_volume_size = number<br>  })</pre> | yes |
 | launch_template_instance_type | Type of EC2 Instance in Launch Template. | `string` | yes |
 | launch_template_key_name | Name of (Public) Key for Instances in Launch Template. | `string` | yes |
-| launch_template_user_data | User Data for Instances in Launch Template. | `string` | yes |
+| launch_template_user_data | User Data for Instances in Launch Template. | `map(string)` | yes |
 | launch_template_vpc_security_group_ids | List of Security Group IDs for Instances in Launch Template. | `list(string)` | yes |
 | security_group_vpc_id | VPC ID of Security Group. | `string` | yes |
 | autoscaling_group_force_delete | Toggle to enable Force Deletion of Instances in the Auto Scaling Group. | `bool` | no |
