@@ -41,7 +41,6 @@
 | launch_template_key_name | Name of (Public) Key for Instances in Launch Template. | `string` | yes |
 | launch_template_user_data | User Data for Instances in Launch Template. | `string` | yes |
 | launch_template_vpc_security_group_ids | List of Security Group IDs for Instances in Launch Template. | `list(string)` | yes |
-| security_group_vpc_id | VPC ID of Security Group. | `string` | yes |
 | autoscaling_group_force_delete | Toggle to enable Force Deletion of Instances in the Auto Scaling Group. | `bool` | no |
 | autoscaling_group_health_check_grace_period | Grace Period for Health Check of the Auto Scaling Group. | `number` | no |
 | autoscaling_group_health_check_type | Type of Health Check of the Auto Scaling Group. | `string` | no |

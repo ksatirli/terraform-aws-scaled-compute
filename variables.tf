@@ -251,8 +251,3 @@ variable "placement_group_spread_level" {
   description = "Spread Level of Placement Groups."
   default     = "rack"
 }
-
-variable "security_group_vpc_id" {
-  type        = string
-  description = "VPC ID of Security Group."
-}
