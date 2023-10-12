@@ -13,7 +13,7 @@ resource "aws_launch_template" "main" {
 
   ebs_optimized = var.launch_template_ebs_optimized
 
-  image_id = var.ami_id
+  image_id = var.launch_template_image_id
 
   # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_template#instance-profile
   iam_instance_profile {

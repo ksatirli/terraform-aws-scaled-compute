@@ -1,8 +1,3 @@
-variable "ami_id" {
-  type        = string
-  description = "AMI ID to use for Instances in the Auto Scaling Group."
-}
-
 variable "autoscaling_group_desired_capacity" {
   type        = number
   description = "Desired Number of Instances in the Auto Scaling Group."
@@ -115,6 +110,11 @@ variable "launch_template_ebs_optimized" {
   type        = bool
   description = "Toggle to enable starting Instances with optimized EBS."
   default     = false
+}
+
+variable "launch_template_image_id" {
+  type        = string
+  description = "AMI ID to use for Instances in the Auto Scaling Group."
 }
 
 variable "launch_template_instance_initiated_shutdown_behavior" {

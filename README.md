@@ -27,7 +27,6 @@
 
 | Name | Description | Type | Required |
 |------|-------------|------|:--------:|
-| ami_id | AMI ID to use for Instances in the Auto Scaling Group. | `string` | yes |
 | autoscaling_group_desired_capacity | Desired Number of Instances in the Auto Scaling Group. | `number` | yes |
 | autoscaling_group_max_size | Maximum Number of Instances in the Auto Scaling Group. | `number` | yes |
 | autoscaling_group_min_size | Minimum Number of Instances in the Auto Scaling Group. | `number` | yes |
@@ -37,6 +36,7 @@
 | custom_suffix | String to append to Resource Names. | `string` | yes |
 | iam_instance_profile_arn | ARN of the IAM Instance Profile for Instances of the Auto Scaling Group. | `string` | yes |
 | launch_template_block_device_mappings | Block Device Configuration for Instances in Launch Template. | <pre>object({<br>    device_name     = string<br>    ebs_volume_size = number<br>  })</pre> | yes |
+| launch_template_image_id | AMI ID to use for Instances in the Auto Scaling Group. | `string` | yes |
 | launch_template_instance_type | Type of EC2 Instance in Launch Template. | `string` | yes |
 | launch_template_key_name | Name of (Public) Key for Instances in Launch Template. | `string` | yes |
 | launch_template_user_data | User Data for Instances in Launch Template. | `string` | yes |
