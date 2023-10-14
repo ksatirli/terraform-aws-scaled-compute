@@ -23,7 +23,7 @@ resource "aws_launch_template" "main" {
   instance_initiated_shutdown_behavior = var.launch_template_instance_initiated_shutdown_behavior
   instance_type                        = var.launch_template_instance_type
 
-  name = local.default_name
+  name_prefix = "${local.default_name}-"
 
   key_name = var.launch_template_key_name
 
@@ -105,7 +105,7 @@ resource "aws_placement_group" "main" {
 # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group
 resource "aws_autoscaling_group" "main" {
   # assemble name consisting of user-defined prefix, availability zone and random suffix
-  name = local.default_name
+  name_prefix = "${local.default_name}-"
 
   availability_zones = var.availability_zones
 
@@ -117,6 +117,24 @@ resource "aws_autoscaling_group" "main" {
   force_delete              = var.autoscaling_group_force_delete
   health_check_grace_period = var.autoscaling_group_health_check_grace_period
   health_check_type         = var.autoscaling_group_health_check_type
+
+  # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group#instance_refresh
+  instance_refresh {
+    strategy = var.autoscaling_group_instance_refresh_strategy
+
+    preferences {
+      checkpoint_delay             = var.autoscaling_group_instance_refresh_preferences.checkpoint_delay
+      checkpoint_percentages       = var.autoscaling_group_instance_refresh_preferences.checkpoint_percentages
+      instance_warmup              = var.autoscaling_group_instance_refresh_preferences.instance_warmup
+      min_healthy_percentage       = var.autoscaling_group_instance_refresh_preferences.min_healthy_percentage
+      skip_matching                = var.autoscaling_group_instance_refresh_preferences.skip_matching
+      auto_rollback                = var.autoscaling_group_instance_refresh_preferences.auto_rollback
+      scale_in_protected_instances = var.autoscaling_group_instance_refresh_preferences.scale_in_protected_instances
+      standby_instances            = var.autoscaling_group_instance_refresh_preferences.standby_instances
+    }
+
+    triggers = var.autoscaling_group_instance_refresh_tags
+  }
 
   # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group#launch_template
   launch_template {

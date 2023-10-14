@@ -23,6 +23,62 @@ variable "autoscaling_group_health_check_type" {
   default     = "EC2" # "ELB" or "EC2"
 }
 
+variable "autoscaling_group_instance_refresh_preferences" {
+  type = object({
+    checkpoint_delay             = number
+    checkpoint_percentages       = number
+    instance_warmup              = number
+    min_healthy_percentage       = number
+    skip_matching                = bool
+    auto_rollback                = bool
+    scale_in_protected_instances = string
+    standby_instances            = string
+  })
+
+  description = "Instance Refresh Strategy of the Auto Scaling Group."
+
+  default = {
+    # Number of seconds to wait after checkpoint.
+    checkpoint_delay = 3600
+
+    # List of percentages for checkpoint.
+    checkpoint_percentages = 100
+
+    # Number of seconds until a newly launched instance is configured and ready to use.
+    instance_warmup = 300
+
+    # Capacity in the Auto Scaling group that must remain healthy during an instance refresh
+    min_healthy_percentage = 0
+
+    # Replace instances that already have desired Launch Template version.
+    skip_matching = false
+
+    # Automatically rollback if Instance Refresh fails
+    auto_rollback = false
+
+    # Behavior when encountering Instances protected from scale in are found.
+    scale_in_protected_instances = "Ignore"
+
+    # Behavior when encountering instances in the Standby state in are found.
+    standby_instances = "Ignore"
+  }
+}
+
+variable "autoscaling_group_instance_refresh_strategy" {
+  type        = string
+  description = "Instance Refresh Strategy of the Auto Scaling Group."
+  default     = "Rolling"
+}
+
+variable "autoscaling_group_instance_refresh_tags" {
+  type        = list(string)
+  description = "List of Property Names that will trigger an Instance Refresh."
+
+  default = [
+    "launch_template"
+  ]
+}
+
 variable "autoscaling_group_launch_template_version" {
   type        = string
   description = "Version of Launch Template to use for Autoscaling Group."
