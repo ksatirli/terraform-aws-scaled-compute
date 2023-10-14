@@ -44,7 +44,7 @@
 | autoscaling_group_force_delete | Toggle to enable Force Deletion of Instances in the Auto Scaling Group. | `bool` | no |
 | autoscaling_group_health_check_grace_period | Grace Period for Health Check of the Auto Scaling Group. | `number` | no |
 | autoscaling_group_health_check_type | Type of Health Check of the Auto Scaling Group. | `string` | no |
-| autoscaling_group_instance_refresh_preferences | Instance Refresh Strategy of the Auto Scaling Group. | <pre>object({<br>    checkpoint_delay             = number<br>    checkpoint_percentages       = number<br>    instance_warmup              = number<br>    min_healthy_percentage       = number<br>    skip_matching                = bool<br>    auto_rollback                = bool<br>    scale_in_protected_instances = string<br>    standby_instances            = string<br>  })</pre> | no |
+| autoscaling_group_instance_refresh_preferences | Instance Refresh Strategy of the Auto Scaling Group. | <pre>object({<br>    checkpoint_delay             = number<br>    checkpoint_percentages       = list(number)<br>    instance_warmup              = number<br>    min_healthy_percentage       = number<br>    skip_matching                = bool<br>    auto_rollback                = bool<br>    scale_in_protected_instances = string<br>    standby_instances            = string<br>  })</pre> | no |
 | autoscaling_group_instance_refresh_strategy | Instance Refresh Strategy of the Auto Scaling Group. | `string` | no |
 | autoscaling_group_instance_refresh_tags | List of Property Names that will trigger an Instance Refresh. | `list(string)` | no |
 | autoscaling_group_launch_template_version | Version of Launch Template to use for Autoscaling Group. | `string` | no |

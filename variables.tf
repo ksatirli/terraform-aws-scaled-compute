@@ -26,7 +26,7 @@ variable "autoscaling_group_health_check_type" {
 variable "autoscaling_group_instance_refresh_preferences" {
   type = object({
     checkpoint_delay             = number
-    checkpoint_percentages       = number
+    checkpoint_percentages       = list(number)
     instance_warmup              = number
     min_healthy_percentage       = number
     skip_matching                = bool
@@ -42,7 +42,9 @@ variable "autoscaling_group_instance_refresh_preferences" {
     checkpoint_delay = 3600
 
     # List of percentages for checkpoint.
-    checkpoint_percentages = 100
+    checkpoint_percentages = [
+      "100"
+    ]
 
     # Number of seconds until a newly launched instance is configured and ready to use.
     instance_warmup = 300
