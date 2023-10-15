@@ -74,11 +74,9 @@ variable "autoscaling_group_instance_refresh_strategy" {
 
 variable "autoscaling_group_instance_refresh_tags" {
   type        = list(string)
-  description = "List of Property Names that will trigger an Instance Refresh."
+  description = "List of additional property names that will trigger an Instance Refresh."
 
-  default = [
-    "launch_template"
-  ]
+  default = []
 }
 
 variable "autoscaling_group_launch_template_version" {
