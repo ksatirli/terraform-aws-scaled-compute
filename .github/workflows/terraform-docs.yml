@@ -13,13 +13,10 @@ jobs:
       fail-fast: false
       matrix:
         examples:
-          - "./examples/basic-aws"
-          - "./examples/basic-azure"
-          - "./examples/metrics-config-datadog"
-          - "./examples/audit-log-config-datadog"
+          - "./examples/basic"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
